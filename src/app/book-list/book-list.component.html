@@ -1,0 +1,21 @@
+<section class="book-list">
+  <div class="book-grid" *ngIf="!isLoading; else loading">
+    <article class="book-card glass" *ngFor="let book of booksList" (click)="goToDetails(book)">
+      <div class="cover-wrap">
+        <img [src]="getCoverUrl(book.cover_id)" [alt]="book.title" />
+      </div>
+      <div class="book-title">{{ book.title }}</div>
+    </article>
+  </div>
+
+  <ng-template #loading>
+    <div class="book-grid">
+      <div class="book-card skeleton" *ngFor="let _ of skeletons">
+        <div class="skeleton-cover"></div>
+        <div class="skeleton-title"></div>
+      </div>
+    </div>
+  </ng-template>
+
+  <p class="empty-state" *ngIf="!isLoading && booksList.length === 0">No books found.</p>
+</section>

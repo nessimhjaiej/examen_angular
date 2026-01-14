@@ -1,0 +1,22 @@
+<section class="details" *ngIf="book; else loading">
+  <a class="back-btn" routerLink="/books">Back to list</a>
+  <div class="details-card glass">
+    <div class="cover-panel">
+      <img class="book-cover" [src]="getCoverUrl(book.cover_id)" [alt]="book.title" />
+    </div>
+    <div class="details-content">
+      <h2>{{ book.title }}</h2>
+      <h3>{{ book.subtitle }}</h3>
+      <p class="meta"><strong>First publish year:</strong> {{ book.first_publish_year || 'Unknown' }}</p>
+      <p class="meta"><strong>Edition count:</strong> {{ book.edition_count || 0 }}</p>
+      <div class="section">
+        <span class="label">Description</span>
+        <p>{{ book.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #loading>
+  <div class="loading glass">Loading...</div>
+</ng-template>

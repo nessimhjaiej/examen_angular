@@ -1,0 +1,39 @@
+<div class="search-bar glass">
+  <div class="field">
+    <span class="icon icon-search" aria-hidden="true"></span>
+    <input
+      type="text"
+      placeholder="Title (starts with)"
+      [(ngModel)]="title"
+      (input)="emitSearch()"
+    />
+  </div>
+  <div class="field">
+    <span class="icon icon-tag" aria-hidden="true"></span>
+    <input
+      type="text"
+      placeholder="Keywords"
+      [(ngModel)]="keywords"
+      (input)="emitSearch()"
+    />
+  </div>
+  <div class="field">
+    <span class="icon icon-hash" aria-hidden="true"></span>
+    <input
+      type="text"
+      placeholder="ISBN"
+      [(ngModel)]="isbn"
+      (input)="emitSearch()"
+    />
+  </div>
+  <div class="field">
+    <span class="icon icon-calendar" aria-hidden="true"></span>
+    <input
+      type="number"
+      placeholder="First publish year"
+      [(ngModel)]="year"
+      (input)="emitSearch()"
+    />
+  </div>
+  <button type="button" class="btn-clear" (click)="clear()">Clear</button>
+</div>
